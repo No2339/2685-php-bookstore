@@ -1,25 +1,21 @@
 <?php
-$host = 'localhost';
-$database = '2685_php_posts';
-$user = 'root';
-$password = '';
+$host="localhost";
+$database="2685_php_posts";
+$user="root";
+$password="";
+ 
 
-$db = new mysqli($host, $user, $password, $database);
+$sql=new mysqli($host , $user , $password , $database);
+$qry= 'SELECT * FROM `pst_users`;';
+$res=$sql->query($qry);
+$data = mysqli_fetch_all($res ,MYSQLI_ASSOC );
 
-$qry = 'SELECT * FROM `pst_comments`;';
-$res = $db->query($qry);
-
-$data = mysqli_fetch_all($res, MYSQLI_ASSOC);
 ?>
-
-
-
-</head>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <body class=" p-6">
     <div class="  rounded-lg p-4">
         <h1 class="text-xl font-bold mb-4 text-center">Users Table</h1>
-        <table class="  border border-gray-300">
+        <table class="border border-gray-300">
             <thead>
                 <tr class="bg-gray-200 ">
                     <?php 
@@ -43,4 +39,3 @@ $data = mysqli_fetch_all($res, MYSQLI_ASSOC);
         </table>
     </div>
 </body>
-
